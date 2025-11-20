@@ -1,7 +1,7 @@
 ﻿# Self-Driving-RC-Car
 A Python-based project for building an autonomous mobile robot on a Raspberry Pi. The robot uses computer vision (OpenCV) for real-time lane detection (line following) and an ultrasonic sensor for obstacle detection and avoidance.
 
-✨ Features
+__Features__
 Integrated Control System: Combines sensing (camera, ultrasonic) and actuation (DC motors, servo) within a single Python script.
 
 Computer Vision Navigation: Uses OpenCV for image processing (thresholding, contour analysis) and centroid calculation to find the center of the lane line.
@@ -36,3 +36,4 @@ Sensing:
 1 x HC-SR04 Ultrasonic Sensor (for distance)
 
 Power Supply: Battery pack for motors and Pi (ensure correct voltage regulation).
+
