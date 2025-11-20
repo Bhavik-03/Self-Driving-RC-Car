@@ -1,1 +1,59 @@
-Raspberry Pi
+The autonomous vehicle prototype consists of carefully selected hardware components that collectively enable sensing, computation, actuation, and structural stability. Each component plays a specific role in ensuring the system operates reliably under real-time constraints.
+
+1. Processing Unit – Raspberry Pi 4 Model B (2GB RAM)
+The Raspberry Pi 4 Model B (2GB RAM) serves as the central computing device. Its quad-core ARM Cortex-A72 CPU provides sufficient performance for running Python-based control loops and OpenCV-based image processing. The board handles camera input, lane detection algorithms, ultrasonic readings, PWM generation, and high-level decision-making, all in real time.
+
+2. Visual Sensor – 5 MP Raspberry Pi Camera Module (Rev 1.3)
+A 5-megapixel Raspberry Pi Camera Module is mounted at the front of the vehicle. It provides high-quality video input essential for lane detection.
+Key capabilities include:
+Captures 1080p video at 30 fps
+Supports 720p at 60 fps
+Supports VGA at 90 fps
+These frame rate options allow tuning between processing accuracy and computational load. The CSI interface ensures low-latency data transfer to the Raspberry Pi.
+
+3. Ultrasonic Sensor – HC-SR04 (2 cm to 4 m Range)
+The HC-SR04 ultrasonic sensor is positioned at the front for obstacle detection.
+It provides reliable distance measurements in the range of 2 cm to 4 meters, which is sufficient for scaled autonomous navigation.
+Although full obstacle avoidance was not completed, the sensor was successfully integrated for distance monitoring and stop-command logic.
+
+4. Propulsion System – 12V Straight Dual “D-Type” BO Motor (230 RPM, 0.456 kg-cm Torque)
+The vehicle uses a 12V dual-shaft BO motor with the following specifications:
+Rated speed: 230 RPM
+Torque output: 0.456 kg-cm
+Type: Straight dual D-type shaft design
+This motor delivers enough torque to propel the lightweight 3D-printed chassis along with the other hardware components while maintaining controllable speed for lane-following tasks.
+
+5. Motor Driver – L298N Dual H-Bridge Module
+The L298N motor driver controls the BO motor’s direction and speed.
+It supports up to 12V motors and provides dual H-bridge channels, enabling both forward and reverse motion. Its compatibility with PWM inputs from the Raspberry Pi allows fine control of motor speed.
+
+6. Steering Actuator – SG90 Servo Motor (360° Rotation)
+Steering is handled by an SG90 servo motor, chosen for its compact size and adequate torque for small-scale steering loads.
+Servo specifications:
+Full 360° rotational capability
+Speed: 0.12 seconds per 60°
+Stall torque: 1.2 kg-cm
+This servo receives continuous PWM signals from the Raspberry Pi, allowing precise adjustment of the steering angle derived from the lane detection algorithm.
+
+7. Custom Chassis and Steering Assembly (3D Printed with ABS)
+The chassis and steering mechanism were completely designed and fabricated in-house using 3D modelling and 3D printing techniques.
+Material: ABS (Acrylonitrile Butadiene Styrene)
+Reason for choice: superior durability, impact resistance, and heat stability compared to PLA
+The custom design includes component mounts for the Raspberry Pi, camera module, BO motor, servo, ultrasonic sensor, and power electronics.
+This custom fabrication allowed proper alignment of components, efficient weight distribution, and better aesthetic and functional integration.
+
+8. Power Supply Architecture
+Due to varying voltage and current requirements, the power system evolved through multiple iterations:
+Motor + Sensor Power
+Originally powered by 3 × 3.7V Li-ion 18650 cells in series, the system was expanded by adding another three cells in parallel to increase current capacity.
+This pack powers:
+BO motor
+SG90 servo
+HC-SR04 ultrasonic sensor
+The Raspberry Pi 4 requires a stable 5V, 3A supply.
+Attempts to regulate the Li-ion pack through an XL4015 buck converter were unsuccessful due to voltage instability under load.
+To ensure reliable operation, the Raspberry Pi is now powered independently using a 10,000 mAh power bank providing:
+Constant 5V output
+Up to 3A current
+This separation ensures the Pi remains stable even when motors draw high current.
+
