@@ -88,7 +88,7 @@ def find_lane_center(image):
     blur = cv2.GaussianBlur(gray, (5, 5), 0)
     _, thresh = cv2.threshold(blur, 100, 255, cv2.THRESH_BINARY_INV)
     height, width = thresh.shape
-    roi = thresh[int(height * 0.9):, :] # ROI: bottom 40%
+    roi = thresh[int(height * 0.8):, :] # ROI: bottom 40%
     contours, _ = cv2.findContours(roi, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     lane_center = None
 
@@ -98,13 +98,13 @@ def find_lane_center(image):
         if M["m00"] != 0:
             cx = int(M["m10"] / M["m00"])
             lane_center = cx
-            cv2.line(image, (cx, int(height * 0.6)), (cx, height - 1), (0, 255, 0), 3)
+            cv2.line(image, (cx, int(height * 0.8)), (cx, height - 1), (0, 255, 0), 3)
     return lane_center, thresh
 
 def calculate_deviation(frame_width, lane_center):
     return lane_center - (frame_width / 2)
 
-def smooth_servo_control(target_angle, prev_angle, smoothing_factor=0.3):
+def smooth_servo_control(target_angle, prev_angle, smoothing_factor=0.2):
     return prev_angle + smoothing_factor * (target_angle - prev_angle)
 try:
     prev_angle = 90
@@ -122,7 +122,7 @@ try:
             servo.stop()
             print("Stopping: Obstacle detected within 15 cm!")
 
-        elif distance < 30:
+        elif distance>15 and distance < 30:
             # Slow down the car but keep following the line
             print(f"Slowing down: Obstacle at {distance:.2f} cm")
             motor_forward(15,15) # Reduced speed
@@ -134,7 +134,7 @@ try:
                 deviation = calculate_deviation(width, lane_center)
 
                 # --- Steering Control ---
-                k = 0.06  # Steering sensitivity
+                k = 0.1  # Steering sensitivity
                 target_angle = 90 - (deviation * k)
                 smooth_angle = smooth_servo_control(target_angle, prev_angle)
                 set_servo_angle(smooth_angle)
@@ -142,9 +142,9 @@ try:
 
                 # --- Speed Control based on curve ---
                 if abs(deviation) > 80:
-                    motor_forward(35,35) # Slower speed for sharp turns
+                    motor_forward(25,25) # Slower speed for sharp turns
                 else:
-                    motor_forward(35,35) # Normal speed for straight/mild curves
+                    motor_forward(25,25) # Normal speed for straight/mild curves
             else:
                 # If no lane is detected, stop motors
                 motor_stop()
