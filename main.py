@@ -83,6 +83,9 @@ def set_servo_angle(angle):
     duty = (angle / 18) + 2.5
     servo.ChangeDutyCycle(duty)
 
+def smooth_servo_control(target_angle, prev_angle, smoothing_factor=0.2):
+    return prev_angle + smoothing_factor * (target_angle - prev_angle)
+
 def find_lane_center(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     blur = cv2.GaussianBlur(gray, (5, 5), 0)
@@ -104,8 +107,6 @@ def find_lane_center(image):
 def calculate_deviation(frame_width, lane_center):
     return lane_center - (frame_width / 2)
 
-def smooth_servo_control(target_angle, prev_angle, smoothing_factor=0.2):
-    return prev_angle + smoothing_factor * (target_angle - prev_angle)
 try:
     prev_angle = 90
     while True:
