@@ -22,8 +22,8 @@ This repository contains the source code and documentation required to replicate
 
 ### Hardware & Chassis
 
-* Unordered sub-list: Modular Chassis: Custom **3D-printed ABS chassis** featuring a parallel Ackerman steering geometry.
-* Unordered sub-list: Steering Mechanism: SG90 Micro Servo programmed to operate within a range of $\pm30^{\circ}$ (60$^{\circ}$ to 120$^{\circ}$) for precise directional control.
+* Modular Chassis: Custom **3D-printed ABS chassis** featuring a parallel Ackerman steering geometry.
+* Steering Mechanism: SG90 Micro Servo programmed to operate within a range of $\pm30^{\circ}$ (60$^{\circ}$ to 120$^{\circ}$) for precise directional control.
 
 ##  Hardware Requirements
 
@@ -121,12 +121,11 @@ pip3 install numpy
 
 The chassis was custom designed and **3D printed using ABS** for heat resistance and durability.
 
-* Unordered sub-list: **Steering Mechanism:** The vehicle utilizes a **parallel Ackerman steering geometry**. 
+*  **Steering Mechanism:** The vehicle utilizes a **parallel Ackerman steering geometry**. 
 
-[Image of parallel Ackerman steering geometry diagram]
  The SG90 servo acts as the direct actuator, connected to C-shaped clamp assemblies. These clamps house the wheel hubs (bolts) and bearings, ensuring smooth rotation. The servo is programmed to operate within a range of $\pm30^{\circ}$ relative to the center position (moving between $60^{\circ}$ and $120^{\circ}$) to provide precise directional control.
-* Unordered sub-list: **Camera Mount:** A custom **3D-printed stand** positions the camera **22.5 cm** above the chassis base. It is fixed at a precise tilt angle of $19.98^{\circ}$ to optimize the field of view for lane detection.
-* Unordered sub-list: **Sensor Mounts:** Dedicated front-facing mount for the HC-SR04 Ultrasonic sensor.
+*  **Camera Mount:** A custom **3D-printed stand** positions the camera **22.5 cm** above the chassis base. It is fixed at a precise tilt angle of $19.98^{\circ}$ to optimize the field of view for lane detection.
+*  **Sensor Mounts:** Dedicated front-facing mount for the HC-SR04 Ultrasonic sensor.
 
 ##  Future Work
 
@@ -140,4 +139,5 @@ Areas identified for continuous improvement:
    * Replacing threshold-based CV with a **CNN (like YOLO)** for object classification (e.g., Stop signs, pedestrians).
 4. And another item: **ROS Integration**
    * Migrating the software stack to **Robot Operating System (ROS)** for better modularity.
+
 
