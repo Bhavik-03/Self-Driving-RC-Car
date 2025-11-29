@@ -41,7 +41,7 @@ This repository contains the source code and documentation required to replicate
 
 ##  Circuit & Wiring
 
-** WARNING: Voltage Divider Required **
+**WARNING: Voltage Divider Required**
 The HC-SR04 Echo pin outputs **5V**, but the Raspberry Pi GPIO is only **3.3V tolerant**. You **MUST** use a voltage divider (1kΩ and 2kΩ resistors) on the Echo line to safely drop the voltage to 3.3V, preventing damage to the Raspberry Pi. 
 
 ### Pin Configuration (BCM Mode)
@@ -139,6 +139,7 @@ Areas identified for continuous improvement:
    * Replacing threshold-based CV with a **CNN (like YOLO)** for object classification (e.g., Stop signs, pedestrians).
 4. And another item: **ROS Integration**
    * Migrating the software stack to **Robot Operating System (ROS)** for better modularity.
+
 
 
 
