@@ -115,4 +115,34 @@ pip3 install numpy
 
    ```bash
    python3 main.py
-```
+   ```
+
+## 📸 Chassis Design
+
+The chassis was custom designed and **3D printed using ABS** for heat resistance and durability.
+
+* Unordered sub-list: **Steering Mechanism:** The vehicle utilizes a **parallel Ackerman steering geometry**. 
+
+[Image of parallel Ackerman steering geometry diagram]
+ The SG90 servo acts as the direct actuator, connected to C-shaped clamp assemblies. These clamps house the wheel hubs (bolts) and bearings, ensuring smooth rotation. The servo is programmed to operate within a range of $\pm30^{\circ}$ relative to the center position (moving between $60^{\circ}$ and $120^{\circ}$) to provide precise directional control.
+* Unordered sub-list: **Camera Mount:** A custom **3D-printed stand** positions the camera **22.5 cm** above the chassis base. It is fixed at a precise tilt angle of $19.98^{\circ}$ to optimize the field of view for lane detection.
+* Unordered sub-list: **Sensor Mounts:** Dedicated front-facing mount for the HC-SR04 Ultrasonic sensor.
+
+## 🔮 Future Work
+
+Areas identified for continuous improvement:
+
+1. First ordered list item: **PID Control**
+   * Implementing a closed-loop PID controller for smoother, more stable steering correction (instead of simple Proportional control).
+2. Another item: **IMU Fusion**
+   * Adding an **MPU-6050** for orientation feedback to prevent drift.
+3. Actual numbers don't matter, just that it's a number: **Deep Learning**
+   * Replacing threshold-based CV with a **CNN (like YOLO)** for object classification (e.g., Stop signs, pedestrians).
+4. And another item: **ROS Integration**
+   * Migrating the software stack to **Robot Operating System (ROS)** for better modularity.
+
+## 👥 Credits
+
+* Unordered sub-list: **Institution:** COEP Technological University, Pune
+* Unordered sub-list: **Department:** Mechanical Engineering (Robotics and AI)
+
