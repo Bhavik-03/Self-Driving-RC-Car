@@ -1,4 +1,4 @@
-# 🚗 Autonomous Vehicle Prototype (Raspberry Pi 4)
+#  Autonomous Vehicle Prototype (Raspberry Pi 4)
 
 ## Overview
 
@@ -6,7 +6,7 @@ This project details the design, implementation, and testing of a prototype auto
 
 This repository contains the source code and documentation required to replicate this project, which was developed at **COEP Technological University, Pune** for the *Sensors for Industrial Robotics* course.
 
-## ✨ Features
+##  Features
 
 ### Driving & Safety Logic
 
@@ -25,7 +25,7 @@ This repository contains the source code and documentation required to replicate
 * Unordered sub-list: Modular Chassis: Custom **3D-printed ABS chassis** featuring a parallel Ackerman steering geometry.
 * Unordered sub-list: Steering Mechanism: SG90 Micro Servo programmed to operate within a range of $\pm30^{\circ}$ (60$^{\circ}$ to 120$^{\circ}$) for precise directional control.
 
-## 🛠️ Hardware Requirements
+##  Hardware Requirements
 
 | Component | Specification | Qty |
 | :--- | :--- | :--- |
@@ -41,7 +41,7 @@ This repository contains the source code and documentation required to replicate
 
 ## 🔌 Circuit & Wiring
 
-**⚠️ WARNING: Voltage Divider Required!**
+** WARNING: Voltage Divider Required!**
 The HC-SR04 Echo pin outputs **5V**, but the Raspberry Pi GPIO is only **3.3V tolerant**. You **MUST** use a voltage divider (1kΩ and 2kΩ resistors) on the Echo line to safely drop the voltage to $\approx$3.3V, preventing damage to the Raspberry Pi. 
 
 ### Pin Configuration (BCM Mode)
@@ -58,7 +58,7 @@ The HC-SR04 Echo pin outputs **5V**, but the Raspberry Pi GPIO is only **3.3V to
 | **Ultrasonic** | Trigger | **GPIO 18** | Send Sound Pulse |
 | **Ultrasonic** | Echo | **GPIO 21** | Receive Echo (via Divider) |
 
-## 💻 Software Architecture
+##  Software Architecture
 
 The software operates on a continuous **Sense** $\rightarrow$ **Think** $\rightarrow$ **Act** loop.
 
@@ -100,3 +100,19 @@ sudo apt-get install python3-opencv python3-pip
 pip3 install RPi.GPIO
 pip3 install picamera2
 pip3 install numpy
+
+
+```markdown
+### Running the Autonomous Code
+
+1. **Clone this repository:**
+
+   ```bash
+   git clone [https://github.com/dharmikyash7118/Self-Driving-RC-Car.git](https://github.com/dharmikyash7118/Self-Driving-RC-Car.git "Self-Driving RC Car Repository")
+   cd Self-Driving-RC-Car
+   ```
+
+2. **Run the main script:**
+
+   ```bash
+   python3 main.py
