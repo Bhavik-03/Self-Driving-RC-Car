@@ -100,9 +100,8 @@ sudo apt-get install python3-opencv python3-pip
 pip3 install RPi.GPIO
 pip3 install picamera2
 pip3 install numpy
+```
 
-
-```markdown
 ### Running the Autonomous Code
 
 1. **Clone this repository:**
@@ -116,3 +115,4 @@ pip3 install numpy
 
    ```bash
    python3 main.py
+```
