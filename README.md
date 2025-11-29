@@ -79,8 +79,8 @@ The vision system uses standard OpenCV techniques on a 640x480 video frame:
 | Step | Formula |
 | :--- | :--- |
 | **Pulse** | Sends a 10µs Trigger pulse. |
-| **Duration** | Calculates the duration of the Echo pulse (Time\_Elapsed). |
-| **Distance** | $\text{Distance} = (\text{Time\_Elapsed} \times 34300) / 2$ |
+| **Duration** | Calculates the duration of the Echo pulse (Time_Elapsed). |
+| **Distance** | Distance = Time_Elapsed x 34300) / 2 |
 
 ## ⚙️ Installation & Usage
 
@@ -140,6 +140,7 @@ Areas identified for continuous improvement:
    * Replacing threshold-based CV with a **CNN (like YOLO)** for object classification (e.g., Stop signs, pedestrians).
 4. And another item: **ROS Integration**
    * Migrating the software stack to **Robot Operating System (ROS)** for better modularity.
+
 
 
 
