@@ -117,7 +117,7 @@ pip3 install numpy
    python3 main.py
    ```
 
-## 📸 Chassis Design
+##  Chassis Design
 
 The chassis was custom designed and **3D printed using ABS** for heat resistance and durability.
 
@@ -128,7 +128,7 @@ The chassis was custom designed and **3D printed using ABS** for heat resistance
 * Unordered sub-list: **Camera Mount:** A custom **3D-printed stand** positions the camera **22.5 cm** above the chassis base. It is fixed at a precise tilt angle of $19.98^{\circ}$ to optimize the field of view for lane detection.
 * Unordered sub-list: **Sensor Mounts:** Dedicated front-facing mount for the HC-SR04 Ultrasonic sensor.
 
-## 🔮 Future Work
+##  Future Work
 
 Areas identified for continuous improvement:
 
@@ -140,9 +140,4 @@ Areas identified for continuous improvement:
    * Replacing threshold-based CV with a **CNN (like YOLO)** for object classification (e.g., Stop signs, pedestrians).
 4. And another item: **ROS Integration**
    * Migrating the software stack to **Robot Operating System (ROS)** for better modularity.
-
-## 👥 Credits
-
-* Unordered sub-list: **Institution:** COEP Technological University, Pune
-* Unordered sub-list: **Department:** Mechanical Engineering (Robotics and AI)
 
