@@ -23,7 +23,7 @@ This repository contains the source code and documentation required to replicate
 ### Hardware & Chassis
 
 * Modular Chassis: Custom **3D-printed ABS chassis** featuring a parallel Ackerman steering geometry.
-* Steering Mechanism: SG90 Micro Servo programmed to operate within a range of $\pm30^{\circ}$ ($\pm60^{\circ}$ to $\pm120^{\circ}$) for precise directional control.
+* Steering Mechanism: SG90 Micro Servo programmed to operate within a range of $\pm30^{\circ}$ for precise directional control.
 
 ##  Hardware Requirements
 
@@ -140,6 +140,7 @@ Areas identified for continuous improvement:
    * Replacing threshold-based CV with a **CNN (like YOLO)** for object classification (e.g., Stop signs, pedestrians).
 4. And another item: **ROS Integration**
    * Migrating the software stack to **Robot Operating System (ROS)** for better modularity.
+
 
 
 
