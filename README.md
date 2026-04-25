@@ -3,6 +3,11 @@
 ## Overview
 Real-time autonomous RC car capable of lane detection and steering control using OpenCV on Raspberry Pi. The system processes live camera input to detect lane boundaries and adjusts steering dynamically for stable navigation.
 
+## Video link of car working : 
+https://youtube.com/shorts/Uuat53RBruc?si=H6TtnL0lAqo2MNvh
+- Achieves ~20+ FPS real-time performance on Raspberry Pi
+
+
 ## My Contribution
 - Implemented a real-time lane detection pipeline using Canny Edge Detection and Hough Transform  
 - Optimized image processing pipeline to achieve ~20+ FPS on Raspberry Pi  
