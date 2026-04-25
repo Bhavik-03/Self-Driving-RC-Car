@@ -52,8 +52,11 @@ def get_distance():
     pulse_end = time.time()
 
     # Save pulse start time
+    timeout = time.time() + 0.04
     while GPIO.input(GPIO_ECHO) == 0:
-        pulse_start = time.time()
+    pulse_start = time.time()
+    if time.time() > timeout:
+        return 100
     
     # Save pulse end time
     while GPIO.input(GPIO_ECHO) == 1:
@@ -89,7 +92,10 @@ def smooth_servo_control(target_angle, prev_angle, smoothing_factor=0.2):
 def find_lane_center(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     blur = cv2.GaussianBlur(gray, (5, 5), 0)
-    _, thresh = cv2.threshold(blur, 100, 255, cv2.THRESH_BINARY_INV)
+
+    edges = cv2.Canny(blur, 50, 150)
+    _, thresh = cv2.threshold(edges, 50, 255, cv2.THRESH_BINARY)
+    
     height, width = thresh.shape
     roi = thresh[int(height * 0.8):, :] # ROI: bottom 40%
     contours, _ = cv2.findContours(roi, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
@@ -137,7 +143,7 @@ try:
                 # --- Steering Control ---
                 k = 0.1  # Steering sensitivity
                 target_angle = 90 - (deviation * k)
-                smooth_angle = smooth_servo_control(target_angle, prev_angle)
+                smooth_angle = smooth_servo_control(target_angle, prev_angle, smoothing_factor=0.1)
                 set_servo_angle(smooth_angle)
                 prev_angle = smooth_angle
 
